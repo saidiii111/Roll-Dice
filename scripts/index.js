@@ -5,7 +5,7 @@ function getRandomInt(min, max) {
 }
 
 let dice = {
-  value: 1,
+  value: getRandomInt(1, 6),
   roll: function() {
     this.value = getRandomInt(1, 6)
     return this.value;
@@ -21,20 +21,19 @@ let dice2 = {
 };
 
 function printNumber(number1, number2){
-  let value1 = document.querySelector('#sqr1');
-  let value2 = document.querySelector('#sqr2');
-  // value1.innerText = dice.value
-  // value2.innerText = dice2.value
+  let value1 = document.body.querySelector('#sqr1');
+  let value2 = document.body.querySelector('#sqr2');
+
   value1.style['background-image'] = `url(/images/inverted-dice-${number1}.svg)`;
   value2.style['background-image'] = `url(/images/inverted-dice-${number2}.svg)`;
 }
 
-let button = document.querySelector('#button');
+let button = document.body.querySelector('#button');
 button.addEventListener('click' , function() {
-  let result1 = dice.roll();
-  let result2 = dice2.roll();
+   dice.roll();
+   dice2.roll();
 
-  printNumber(result1, result2);
+  printNumber(dice.roll(), dice2.roll());
 });
 
 printNumber(dice.value, dice2.value);
