@@ -13,7 +13,7 @@ let dice = {
 };
 
 let dice2 = {
-  value: 1,
+  value: getRandomInt(1, 6),
   roll: function() {
     this.value = getRandomInt(1, 6)
     return this.value;
